@@ -16,8 +16,7 @@ int main(int argc, char const *argv[]){
         printf("\n 0 - Fechar Programa ");
         printf("\n\n Escolha uma opcao: ");
         scanf("%d",&escolha);
-        switch (escolha)
-        {
+        switch (escolha){
         case 1:
             printf("opa\n");
             int x;

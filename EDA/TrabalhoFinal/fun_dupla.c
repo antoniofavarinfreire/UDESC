@@ -4,35 +4,47 @@
 #include"dupla.h"
 
 int vazia(Lista l){
-    return l.quant == 0;
+    return l.head == NULL;
 } 
 
 void cria_lista(Lista *l, int info){
     l->head = NULL;
-    l->taminfo = info;
     l->quant = 0;
-}
-
-void cria_conjunto(Lista *l, int conjunto){
-    if (l->head == NULL){
-        cria_lista(l,sizeof(conjunto));
-        printf("feito\n");
-        
-    }
-    printf("opa\n");
-    
+    l->taminfo = info;
 }
 
 int insere_inicio(Lista *l, void *info){
     Elemento *p = malloc(sizeof(Elemento));
-    if(p==NULL){
-        free(p);
+    if (p == NULL){
+        return 0;
     }
-    memcpy(p->info,info,l->taminfo);
+    p->info = malloc (l->taminfo);
+    
+    if(p->info == NULL){
+        free(p);
+        return 0;
+    }
+    memcpy(p->info, info, l->taminfo);
     p->prox = l->head;
-    l->head->ant = p;
+    p->ant = NULL;
+    if (p->prox != NULL){
+        p->prox->ant = p;
+    }
     l->head = p;
-    l->quant ++; 
-    return 1;
+    return 1
+    
 }
 
+void mostra_lista(Lista l, void (*mostraInfo)(void*)){
+    if(vazia(l)){
+        printf("lista vazia!\n");
+    }else {
+        printf("Dados da lista:\n");
+        Elemento *p = l.head;
+        while (p != NULL){
+            mostraInfo(p->info); //callback
+            p = p->prox;
+        }
+        
+    }
+}
