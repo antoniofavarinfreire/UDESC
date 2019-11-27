@@ -14,4 +14,5 @@ typedef struct Lista{
 
 void cria_lista(Lista *l, int info);
 int insere_elemento(Lista *l, void *info);
+void cria_conjunto(Lista *l, int conjunto);
 int vazia(Lista l);

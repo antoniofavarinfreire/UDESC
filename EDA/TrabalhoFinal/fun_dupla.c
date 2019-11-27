@@ -1,5 +1,6 @@
 #include<stdio.h>
 #include<stdlib.h>
+#include<string.h>
 #include"dupla.h"
 
 int vazia(Lista l){
@@ -12,10 +13,13 @@ void cria_lista(Lista *l, int info){
     l->quant = 0;
 }
 
-int cria_conjunto(Lista *l, int conjunto){
+void cria_conjunto(Lista *l, int conjunto){
     if (l->head == NULL){
-        cria_lista(l,conjunto);
+        cria_lista(l,sizeof(conjunto));
+        printf("feito\n");
+        
     }
+    printf("opa\n");
     
 }
 
