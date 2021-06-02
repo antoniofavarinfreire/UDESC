@@ -1,0 +1,71 @@
+1) 
+#include <stdio.h>
+#include <stdlib.h>
+
+void troca_valor(float *x, float *y);
+int main(int argc, char const *argv[]){
+    float a, b;
+    printf("Digite um valor para A: ");
+    scanf("%f", &a);
+    printf("Digite um valor para B: ");
+    scanf("%f", &b);
+    printf("A = %.2f\nB = %.2f\n", a, b);
+    troca_valor(&a, &b);
+    printf("A = %.2f\nB = %.2f\n", a, b);
+    return 0;
+}
+
+void troca_valor(float *x, float *y){
+    float  aux;
+    aux = *x;
+    *x = *y;
+    *y = aux;
+}
+
+2)
+#include <stdio.h>
+#include <stdlib.h>
+void calcula_circulo(float r, float *pPerimetro, float *pArea);
+int main(int argc, char const *argv[]){
+    float raio, perimetro, area;
+    printf("Digite o valor do raio:");
+    scanf("%f", &raio);
+    //printf("Valor do raio: %.2f\n", raio);
+    calcula_circulo(raio, &perimetro, &area);
+    printf("Raio = %.2f\nPerimetro = %.2f\nArea = %.2f\n", raio, perimetro, area);
+    return 0;
+}
+
+void calcula_circulo(float r, float *pPerimetro, float *pArea){
+    float pi = 3.14;
+    *pPerimetro = 2*r*pi;
+    *pArea = pi*(r * r);
+}
+
+3)
+#include <stdio.h>
+#include <stdlib.h>
+
+void calcula_hora(int totalminuto, int *pH, int *pM);
+
+int main(int argc, char const *argv[]){
+    int minutos, horaDeco, minutoDeco;
+    printf("Adicione quantos minuto deseja: ");
+    scanf("%d", &minutos);
+    calcula_hora(minutos, &horaDeco, &minutoDeco);
+    printf("Hora corrente: %d : %d\n", horaDeco, minutoDeco);
+    return 0;
+}
+
+void calcula_hora(int totalminuto, int *pH, int *pM){
+    if(totalminuto < 60){
+        
+        *pH = 0;
+        *pM = totalminuto;
+
+    } else{
+
+        *pH = totalminuto / 60;
+        *pM = totalminuto % 60;
+    }
+}
