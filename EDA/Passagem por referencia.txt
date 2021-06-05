@@ -69,3 +69,45 @@ void calcula_hora(int totalminuto, int *pH, int *pM){
         *pM = totalminuto % 60;
     }
 }
+
+4)
+#include <stdio.h>
+#include <stdlib.h>
+
+void max_mim(int *vet, int tam, int *pMim, int *pMax);
+
+int main(int argc, char const *argv[]){
+    int tam;
+    printf("Digite o tamanho do vetor:");
+    scanf("%d", &tam);
+    int i;
+    int vet[tam];
+    for (i=0 ; i< tam ; i++){
+        scanf("%d", &vet[i]);
+    }
+    
+    int mim, max;
+    max_mim(vet,  tam, &mim, &max);
+    printf("Maior:%d\nMenor:%d\n", max, mim);
+    return 0;
+}
+
+void max_mim(int *vet, int tam, int *pMim, int *pMax){
+    
+    int i;
+
+    for(i=0;i<tam;i++){
+        //printf("%d", vet[i]);    
+
+        if(*pMax > vet[i] ){
+
+            *pMax = vet[i];
+            //printf("Max =%d ", *pMax);
+
+        }else {
+
+            *pMim = vet[i];
+            //printf("Mim = %d ", *pMim);
+        }
+    }
+}
